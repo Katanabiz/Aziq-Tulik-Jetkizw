@@ -1,3 +1,4 @@
+import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:flutter/material.dart';
 
 import '../vidjetter/ulken_matin_vidjet.dart';
@@ -24,7 +25,7 @@ class _NeigizgiTagamKorinisiState extends State<NeigizgiTagamKorinisi> {
                     children: [
                       Column(
                         children: const [
-                          UlkenMatinVidjet(text: "Kazakhstan",color:AppColors.mainColor,),
+                          UlkenMatinVidjet(text: "Kazakhstan",color:AppTusteri.matinTus,),
                           Text("Qala")
                         ],
                       ),
@@ -34,7 +35,7 @@ class _NeigizgiTagamKorinisiState extends State<NeigizgiTagamKorinisi> {
                           width: 45,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: AppColors.mainColor),
+                              color: AppTusteri.matinTus),
                           child: const Icon(Icons.search, color: Colors.white),
                         ),
                       )

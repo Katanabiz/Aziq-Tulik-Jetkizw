@@ -32,15 +32,18 @@ flutter:
 
 
   fonts:
-    - family: Roboto
+    - family: Montserrat
       fonts:
-        - asset: fonts/Schyler-Regular.ttf
-        - asset: fonts/Schyler-Italic.ttf
-          style: italic
-    - family: Trajan Pro
-      fonts:
-        - asset: fonts/TrajanPro.ttf
-        - asset: fonts/TrajanPro_Bold.ttf
+        - asset: assets/fonts/Montserrat-Bold.otf
           weight: 700
+        - asset: assets/fonts/Montserrat-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Light.otf
+          weight: 300
+          style: italic
+    - family: Prata
+      fonts:
+        - asset: assets/fonts/Prata-Regular.ttf
+        
   
 
