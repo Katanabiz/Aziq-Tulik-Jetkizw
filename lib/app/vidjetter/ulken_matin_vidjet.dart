@@ -17,6 +17,7 @@ class UlkenMatinVidjet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines:1,
       overflow: overFlow,
       style:TextStyle(
         fontFamily:'Roboto',

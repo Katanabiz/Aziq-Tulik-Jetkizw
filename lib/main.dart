@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'uy/negizgi_tagam_korinisi.dart';
+
+import 'app/uy/negizgi_tagam_korinisi.dart';
 
 void main() {
   runApp(const MyApp());

@@ -5,11 +5,13 @@ class SaginMatinVidjet extends StatelessWidget {
   final String text;
   final double size;
   final TextOverflow overFlow;
+  final double height;
   const SaginMatinVidjet(
       {Key? key,
-       this.color = const Color(0xFF332d2b),
+       this.color = const Color(0xFFccc7c5),
       required this.text,
-       this.size = 20,
+       this.size = 12,
+       this.height =1.2,
        this.overFlow = TextOverflow.ellipsis})
       : super(key: key);
 
@@ -22,6 +24,7 @@ class SaginMatinVidjet extends StatelessWidget {
         fontFamily:'Roboto',
         fontSize:size,
         color:color,
+        height:height,
         fontWeight:FontWeight.w400,
       )
     );
