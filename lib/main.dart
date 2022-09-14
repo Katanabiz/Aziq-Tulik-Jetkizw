@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'app/uy/negizgi_tagam_korinisi.dart';
+import 'app/uy/main_food_view.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
+ 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
