@@ -45,7 +45,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
         alignment: Alignment.bottomCenter,
         child: Container(
             height: 120,
-            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 15),
+            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30), color: Colors.white),
             child: Container(
@@ -73,7 +73,13 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                         const SizedBox(width: 10),
                         const SmalTextWidget(text: 'Comments')
                       ],
-                    )
+                    ),
+                   const  SizedBox(height: 20,),
+                   Row(
+                    children: const[
+
+                    ],
+                   )
                   ],
                 ))),
       )
