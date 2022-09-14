@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import '../vidjetter/smal_text_widget.dart';
 import '../vidjetter/big_text_widget.dart';
 
-class TgamBodyKorninsi extends StatefulWidget {
-  const TgamBodyKorninsi({Key? key}) : super(key: key);
+class FoodBodyView extends StatefulWidget {
+  const FoodBodyView({Key? key}) : super(key: key);
 
   @override
-  State<TgamBodyKorninsi> createState() => _TgamBodyKorninsiState();
+  State<FoodBodyView> createState() => _FoodBodyViewState();
 }
 
-class _TgamBodyKorninsiState extends State<TgamBodyKorninsi> {
+class _FoodBodyViewState extends State<FoodBodyView> {
   PageController pageController = PageController(viewportFraction: 0.85);
   @override
   Widget build(BuildContext context) {
@@ -64,14 +64,14 @@ class _TgamBodyKorninsiState extends State<TgamBodyKorninsi> {
                                 // arrow means retun function
                                 (index) {
                           return const Icon(Icons.star,
-                              color: AppTusteri.negizigTus);
+                              size: 20, color: AppTusteri.negizigTus);
                         })),
                         const SizedBox(width: 10),
                         const SmalTextWidget(text: '4.5'),
                         const SizedBox(width: 10),
                         const SmalTextWidget(text: '1234'),
-                        SizedBox(width: 10),
-                        const SmalTextWidget(text: 'comments')
+                        const SizedBox(width: 10),
+                        const SmalTextWidget(text: 'Comments')
                       ],
                     )
                   ],

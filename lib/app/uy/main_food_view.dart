@@ -5,14 +5,14 @@ import '../vidjetter/smal_text_widget.dart';
 import '../vidjetter/big_text_widget.dart';
 import 'food_body_view.dart';
 
-class NeigizgiTagamKorinisi extends StatefulWidget {
-  const NeigizgiTagamKorinisi({Key? key}) : super(key: key);
+class MianFoodView extends StatefulWidget {
+  const MianFoodView({Key? key}) : super(key: key);
 
   @override
-  State<NeigizgiTagamKorinisi> createState() => _NeigizgiTagamKorinisiState();
+  State<MianFoodView> createState() => _MianFoodViewState();
 }
 
-class _NeigizgiTagamKorinisiState extends State<NeigizgiTagamKorinisi> {
+class _MianFoodViewState extends State<MianFoodView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +32,7 @@ class _NeigizgiTagamKorinisiState extends State<NeigizgiTagamKorinisi> {
                       ),
                       Row(
                         children: const [
-                          SmalTextWidget(
-                              text: "Alamty", color: Colors.black54),
+                          SmalTextWidget(text: "Alamty", color: Colors.black54),
                           Icon(Icons.arrow_drop_down)
                         ],
                       ),
@@ -50,7 +49,7 @@ class _NeigizgiTagamKorinisiState extends State<NeigizgiTagamKorinisi> {
                     ),
                   )
                 ])),
-        const TgamBodyKorninsi()
+        const FoodBodyView()
       ],
     ));
   }
