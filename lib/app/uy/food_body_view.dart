@@ -30,7 +30,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
     return Stack(children: [
       Container(
           height: 220,
-          margin: const EdgeInsets.only(left: 5, right: 5),
+          margin: const EdgeInsets.only(left: 10, right: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: index.isEven
