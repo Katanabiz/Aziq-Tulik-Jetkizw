@@ -54,4 +54,3 @@ class _MianFoodViewState extends State<MianFoodView> {
     ));
   }
 }
-//52:34

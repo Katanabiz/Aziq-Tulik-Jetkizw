@@ -38,7 +38,6 @@ class _FoodBodyViewState extends State<FoodBodyView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.redAccent,
         height: 320,
         child: PageView.builder(
             controller: pageController,
