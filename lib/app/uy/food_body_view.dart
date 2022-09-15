@@ -1,6 +1,7 @@
 import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:flutter/material.dart';
 
+import '../vidjetter/icons_and_text_widget.dart';
 import '../vidjetter/smal_text_widget.dart';
 import '../vidjetter/big_text_widget.dart';
 
@@ -13,6 +14,25 @@ class FoodBodyView extends StatefulWidget {
 
 class _FoodBodyViewState extends State<FoodBodyView> {
   PageController pageController = PageController(viewportFraction: 0.85);
+
+  var currentPageValue = 0.0;
+
+  @override
+  void initState() {
+    super.initState;
+    pageController.addListener(() {
+      setState(() {
+        currentPageValue = pageController.page!;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,12 +94,25 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                         const SmalTextWidget(text: 'Comments')
                       ],
                     ),
-                   const  SizedBox(height: 20,),
-                   Row(
-                    children: const[
-
-                    ],
-                   )
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: const [
+                        IconsAndTextWidget(
+                            icon: Icons.circle_sharp,
+                            text: 'Normal',
+                            iconColor: AppTusteri.belgisesiTus1),
+                        IconsAndTextWidget(
+                            icon: Icons.location_on,
+                            text: '1.7km',
+                            iconColor: AppTusteri.matinTus),
+                        IconsAndTextWidget(
+                            icon: Icons.access_time_rounded,
+                            text: '32min',
+                            iconColor: AppTusteri.belgisesiTus2),
+                      ],
+                    )
                   ],
                 ))),
       )

@@ -1,4 +1,5 @@
 
+import 'package:aziq_tulik_jetkizw/app/vidjetter/smal_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class IconsAndTextWidget extends StatelessWidget {
@@ -6,13 +7,11 @@ class IconsAndTextWidget extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.text,
-    required this.color,
     required this.iconColor,
   }) : super(key: key);
 
     final IconData icon;
     final String text;
-    final Color color;
     final Color iconColor;
 
 
@@ -20,7 +19,9 @@ class IconsAndTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        
+        Icon(icon,color:iconColor),
+       const SizedBox(width:5),
+        SmalTextWidget(text: text,),
       ],
     );
   }
