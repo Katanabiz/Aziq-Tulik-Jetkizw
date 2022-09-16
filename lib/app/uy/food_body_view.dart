@@ -84,7 +84,39 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                 ),
               )
             ],
-          ))
+          )),
+      // List food and images
+      Container(
+        height: 700,
+        child: ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 10,
+            itemBuilder: (contect, index) {
+              return Container(
+                  margin: EdgeInsets.only(
+                      left: Dimensions.width20,
+                      right: Dimensions.width20,
+                      bottom: Dimensions.height10),
+                  child: Row(
+                    children: [
+                      // Image section
+                      Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius20),
+                            color: Colors.white38,
+                            image: const DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage('assets/images/food0.png')),
+                          )),
+                      // Text container
+                    ],
+                  ));
+            }),
+      )
     ]);
   }
 

@@ -49,12 +49,15 @@ class _MianFoodViewState extends State<MianFoodView> {
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius15),
                           color: AppTusteri.negizigTus),
-                       
-                      child:  Icon(Icons.search, color: Colors.white,size:Dimensions.iconSzie24),
+                      child: Icon(Icons.search,
+                          color: Colors.white, size: Dimensions.iconSzie24),
                     ),
                   )
                 ])),
-        const FoodBodyView()
+        const Expanded(
+            child: SingleChildScrollView(
+          child: FoodBodyView(),
+        ))
       ],
     ));
   }
