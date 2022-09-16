@@ -3,9 +3,9 @@ import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
-import '../vidjetter/icons_and_text_widget.dart';
-import '../vidjetter/smal_text_widget.dart';
-import '../vidjetter/big_text_widget.dart';
+import '../../vidjetter/icons_and_text_widget.dart';
+import '../../vidjetter/smal_text_widget.dart';
+import '../../vidjetter/big_text_widget.dart';
 
 class FoodBodyView extends StatefulWidget {
   const FoodBodyView({Key? key}) : super(key: key);

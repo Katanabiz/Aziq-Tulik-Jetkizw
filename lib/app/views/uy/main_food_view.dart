@@ -2,8 +2,8 @@ import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
 import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:flutter/material.dart';
 
-import '../vidjetter/smal_text_widget.dart';
-import '../vidjetter/big_text_widget.dart';
+import '../../vidjetter/smal_text_widget.dart';
+import '../../vidjetter/big_text_widget.dart';
 import 'food_body_view.dart';
 
 class MianFoodView extends StatefulWidget {
