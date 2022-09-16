@@ -1,3 +1,4 @@
+import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
 import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +20,10 @@ class _MianFoodViewState extends State<MianFoodView> {
         body: Column(
       children: [
         Container(
-            margin: const EdgeInsets.only(bottom: 15, top: 45),
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            margin: EdgeInsets.only(
+                bottom: Dimensions.height15, top: Dimensions.height45),
+            padding: EdgeInsets.only(
+                left: Dimensions.width20, right: Dimensions.width20),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -40,12 +43,14 @@ class _MianFoodViewState extends State<MianFoodView> {
                   ),
                   Center(
                     child: Container(
-                      height: 45,
-                      width: 45,
+                      height: Dimensions.height45,
+                      width: Dimensions.height45,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius15),
                           color: AppTusteri.negizigTus),
-                      child: const Icon(Icons.search, color: Colors.white),
+                       
+                      child:  Icon(Icons.search, color: Colors.white,size:Dimensions.iconSzie24),
                     ),
                   )
                 ])),

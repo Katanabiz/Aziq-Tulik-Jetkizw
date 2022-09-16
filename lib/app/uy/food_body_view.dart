@@ -40,6 +40,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      // slaider section
       SizedBox(
           height: Dimensions.pageView,
           child: PageView.builder(
@@ -48,6 +49,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
               itemBuilder: (context, index) {
                 return _pageItemBuild(index);
               })),
+      // dots
       DotsIndicator(
         dotsCount: 5,
         position: currentPageValue,
@@ -59,6 +61,30 @@ class _FoodBodyViewState extends State<FoodBodyView> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
       ),
+
+      // popular text
+      SizedBox(
+        height: Dimensions.height30,
+      ),
+      Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const BigTextWidget(text: 'Popular'),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                  margin: const EdgeInsets.only(bottom: 3),
+                  child: const BigTextWidget(text: '.', color: Colors.black26)),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: const SmalTextWidget(
+                  text: 'Food pairing',
+                ),
+              )
+            ],
+          ))
     ]);
   }
 
@@ -92,7 +118,8 @@ class _FoodBodyViewState extends State<FoodBodyView> {
       child: Stack(children: [
         Container(
             height: Dimensions.pageViewContainer,
-            margin: const EdgeInsets.only(left: 10, right: 10),
+            margin: EdgeInsets.only(
+                left: Dimensions.width10, right: Dimensions.width10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: index.isEven
@@ -107,7 +134,10 @@ class _FoodBodyViewState extends State<FoodBodyView> {
           alignment: Alignment.bottomCenter,
           child: Container(
               height: Dimensions.pageViewTextContainer,
-              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+              margin: EdgeInsets.only(
+                  left: Dimensions.width30,
+                  right: Dimensions.width30,
+                  bottom: Dimensions.height30),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: Colors.white,
@@ -135,8 +165,9 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                               children: List.generate(5,
                                   // arrow means retun function
                                   (index) {
-                            return const Icon(Icons.star,
-                                size: 18, color: AppTusteri.negizigTus);
+                            return Icon(Icons.star,
+                                size: Dimensions.iconSzie18,
+                                color: AppTusteri.negizigTus);
                           })),
                           const SizedBox(width: 10),
                           const SmalTextWidget(text: '4.5'),
