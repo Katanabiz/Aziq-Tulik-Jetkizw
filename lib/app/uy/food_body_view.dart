@@ -1,4 +1,6 @@
+import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
 import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 import '../vidjetter/icons_and_text_widget.dart';
@@ -17,7 +19,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
 
   var currentPageValue = 0.0;
   double scallFactor = 0.8;
-  double height = 220.0;
+  double height = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -37,14 +39,27 @@ class _FoodBodyViewState extends State<FoodBodyView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 320,
-        child: PageView.builder(
-            controller: pageController,
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return _pageItemBuild(index);
-            }));
+    return Column(children: [
+      SizedBox(
+          height: Dimensions.pageView,
+          child: PageView.builder(
+              controller: pageController,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return _pageItemBuild(index);
+              })),
+      DotsIndicator(
+        dotsCount: 5,
+        position: currentPageValue,
+        decorator: DotsDecorator(
+          activeColor: AppTusteri.negizigTus,
+          size: const Size.square(9.0),
+          activeSize: const Size(18.0, 9.0),
+          activeShape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+        ),
+      ),
+    ]);
   }
 
   Widget _pageItemBuild(int index) {
@@ -71,11 +86,12 @@ class _FoodBodyViewState extends State<FoodBodyView> {
       matrix = Matrix4.diagonal3Values(1, currentScal, 1)
         ..setTranslationRaw(0, height * (1 - scallFactor) / 2, 1);
     }
+
     return Transform(
       transform: matrix,
       child: Stack(children: [
         Container(
-            height: 220,
+            height: Dimensions.pageViewContainer,
             margin: const EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
@@ -90,18 +106,28 @@ class _FoodBodyViewState extends State<FoodBodyView> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              height: 120,
+              height: Dimensions.pageViewTextContainer,
               margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30), color: Colors.white),
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0XFFe8e8e8),
+                      blurRadius: 5.0,
+                      offset: Offset(-5, 0),
+                    ),
+                    BoxShadow(color: Colors.white, offset: Offset(5, 0))
+                  ]),
               child: Container(
-                  padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+                  padding: EdgeInsets.only(
+                      top: Dimensions.height15, left: 15, right: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const BigTextWidget(text: 'Malay Side'),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: Dimensions.height10,
                       ),
                       Row(
                         children: [
@@ -120,10 +146,11 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                           const SmalTextWidget(text: 'Comments')
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: Dimensions.height20,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           IconsAndTextWidget(
                               icon: Icons.circle_sharp,
@@ -132,7 +159,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                           IconsAndTextWidget(
                               icon: Icons.location_on,
                               text: '1.7km',
-                              iconColor: AppTusteri.matinTus),
+                              iconColor: AppTusteri.negizigTus),
                           IconsAndTextWidget(
                               icon: Icons.access_time_rounded,
                               text: '32min',
