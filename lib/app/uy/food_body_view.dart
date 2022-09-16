@@ -94,7 +94,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
             height: Dimensions.pageViewContainer,
             margin: const EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: index.isEven
                   ? const Color(0xff69c5df)
                   : const Color(0xff9294cc),
@@ -109,7 +109,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
               height: Dimensions.pageViewTextContainer,
               margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: Colors.white,
                   boxShadow: const [
                     BoxShadow(
@@ -136,7 +136,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
                                   // arrow means retun function
                                   (index) {
                             return const Icon(Icons.star,
-                                size: 20, color: AppTusteri.negizigTus);
+                                size: 18, color: AppTusteri.negizigTus);
                           })),
                           const SizedBox(width: 10),
                           const SmalTextWidget(text: '4.5'),
