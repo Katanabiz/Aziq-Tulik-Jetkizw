@@ -2,9 +2,7 @@ import 'package:get/get.dart';
 
 class Dimensions {
   static double screenHeight = Get.context!.height; // 842
-  static double screenWidth = Get.context!.width; // 360
-
-
+  static double screenWidth = Get.context!.width; // sumsung 360 iphone 390
 
   static double pageView = screenHeight / 2.64;
   static double pageViewContainer = screenHeight / 3.84;
@@ -32,7 +30,12 @@ class Dimensions {
   static double radius20 = screenHeight / 42.2;
   static double radius30 = screenHeight / 24.13;
 
-  // icon size 
-  static double iconSzie18 = screenHeight / 47.0;    // deflut icon size is 24
-  static double iconSzie24 = screenHeight / 35.17;    
+  // icon size
+  static double iconSzie18 = screenHeight / 47.0; // deflut icon size is 24
+  static double iconSzie24 = screenHeight / 35.17;
+
+  // List view images
+
+  static double listViewImgeSize = screenWidth / 3.25;
+  static double listViewTextContainerSize = screenWidth / 3.9;
 }

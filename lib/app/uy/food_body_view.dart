@@ -86,37 +86,80 @@ class _FoodBodyViewState extends State<FoodBodyView> {
             ],
           )),
       // List food and images
-      Container(
-        height: 700,
-        child: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10,
-            itemBuilder: (contect, index) {
-              return Container(
-                  margin: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      right: Dimensions.width20,
-                      bottom: Dimensions.height10),
-                  child: Row(
-                    children: [
-                      // Image section
-                      Container(
-                          width: 120,
-                          height: 120,
+      ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 10,
+          itemBuilder: (contect, index) {
+            return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    bottom: Dimensions.height10),
+                child: Row(
+                  children: [
+                    // Image section
+                    Container(
+                        width: Dimensions.listViewImgeSize,
+                        height: Dimensions.listViewImgeSize,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius20),
+                          color: Colors.white38,
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage('assets/images/food0.png')),
+                        )),
+                    // Text container
+                    Expanded(
+                      child: Container(
+                          height: Dimensions.listViewTextContainerSize,
                           decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius20),
-                            color: Colors.white38,
-                            image: const DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage('assets/images/food0.png')),
-                          )),
-                      // Text container
-                    ],
-                  ));
-            }),
-      )
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(Dimensions.radius20),
+                                bottomRight:
+                                    Radius.circular(Dimensions.radius20)),
+                            color: Colors.white,
+                          ),
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                left: Dimensions.width10,
+                                right: Dimensions.width15,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const BigTextWidget(
+                                      text: 'Nutuirous furit meal in china'),
+                                  SizedBox(height: Dimensions.height10),
+                                  const SmalTextWidget(
+                                      text: 'With chines charactirects'),
+                                  SizedBox(height: Dimensions.height10),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      IconsAndTextWidget(
+                                          icon: Icons.circle_sharp,
+                                          text: 'Normal',
+                                          iconColor: AppTusteri.belgisesiTus1),
+                                      IconsAndTextWidget(
+                                          icon: Icons.location_on,
+                                          text: '1.7km',
+                                          iconColor: AppTusteri.negizigTus),
+                                      IconsAndTextWidget(
+                                          icon: Icons.access_time_rounded,
+                                          text: '32min',
+                                          iconColor: AppTusteri.belgisesiTus2),
+                                    ],
+                                  )
+                                ],
+                              ))),
+                    ),
+                  ],
+                ));
+          })
     ]);
   }
 
