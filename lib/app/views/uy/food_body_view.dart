@@ -3,6 +3,7 @@ import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
+import '../../vidjetter/app_column_widget.dart';
 import '../../vidjetter/icons_and_text_widget.dart';
 import '../../vidjetter/smal_text_widget.dart';
 import '../../vidjetter/big_text_widget.dart';
@@ -227,53 +228,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
               child: Container(
                   padding: EdgeInsets.only(
                       top: Dimensions.height15, left: 15, right: 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const BigTextWidget(text: 'Malay Side'),
-                      SizedBox(
-                        height: Dimensions.height10,
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                              children: List.generate(5,
-                                  // arrow means retun function
-                                  (index) {
-                            return Icon(Icons.star,
-                                size: Dimensions.iconSzie18,
-                                color: AppTusteri.negizigTus);
-                          })),
-                          const SizedBox(width: 10),
-                          const SmalTextWidget(text: '4.5'),
-                          const SizedBox(width: 10),
-                          const SmalTextWidget(text: '1234'),
-                          const SizedBox(width: 10),
-                          const SmalTextWidget(text: 'Comments')
-                        ],
-                      ),
-                      SizedBox(
-                        height: Dimensions.height20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          IconsAndTextWidget(
-                              icon: Icons.circle_sharp,
-                              text: 'Normal',
-                              iconColor: AppTusteri.belgisesiTus1),
-                          IconsAndTextWidget(
-                              icon: Icons.location_on,
-                              text: '1.7km',
-                              iconColor: AppTusteri.negizigTus),
-                          IconsAndTextWidget(
-                              icon: Icons.access_time_rounded,
-                              text: '32min',
-                              iconColor: AppTusteri.belgisesiTus2),
-                        ],
-                      )
-                    ],
-                  ))),
+                  child: const AppColumnWidget(text:'Malay Side'))),
         )
       ]),
     );

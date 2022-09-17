@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home:
-            const MianFoodView() // const PopularFoodDetailsView(), //const MianFoodView()
+            const PopularFoodDetailsView() // const PopularFoodDetailsView(), //const MianFoodView()
         );
   }
 }
+// 3:23:36
