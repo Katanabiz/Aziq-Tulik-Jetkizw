@@ -5,6 +5,7 @@ import '../../../common/quraldar/app_tusteri.dart';
 import '../../vidjetter/app_column_widget.dart';
 import '../../vidjetter/appbar_icons_widget.dart';
 import '../../vidjetter/big_text_widget.dart';
+import '../../vidjetter/expandable_text_widget.dart';
 import '../../vidjetter/icons_and_text_widget.dart';
 import '../../vidjetter/smal_text_widget.dart';
 
@@ -16,6 +17,7 @@ class PopularFoodDetailsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
+        // background image
         Positioned(
             left: 0,
             right: 0,
@@ -26,6 +28,7 @@ class PopularFoodDetailsView extends StatelessWidget {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage('assets/images/food0.png'))))),
+        // both of icons
         Positioned(
           top: Dimensions.height45,
           left: Dimensions.width20,
@@ -37,6 +40,7 @@ class PopularFoodDetailsView extends StatelessWidget {
                 AppbarIconwidget(icon: Icons.shopping_cart_outlined),
               ]),
         ),
+        // introduction of foods
         Positioned(
           left: 0,
           right: 0,
@@ -44,7 +48,9 @@ class PopularFoodDetailsView extends StatelessWidget {
           top: Dimensions.popularFoodImageSize - 20,
           child: Container(
               padding: EdgeInsets.only(
-                  left: Dimensions.width20, top: Dimensions.height20),
+                  left: Dimensions.width20,
+                  right: Dimensions.height20,
+                  top: Dimensions.height20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(Dimensions.radius20),
@@ -60,10 +66,22 @@ class PopularFoodDetailsView extends StatelessWidget {
                   SizedBox(
                     height: Dimensions.height20,
                   ),
-                  const BigTextWidget(text: 'Introudis')
+                  const BigTextWidget(text: 'Introudis'),
+                  SizedBox(
+                    height: Dimensions.height20,
+                  ),
+
+                  // expandable text widget
+                  const Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableTextWidget(
+                          text:
+                              "Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping upTrying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up ."),
+                    ),
+                  )
                 ],
               )),
-        )
+        ),
       ]),
       bottomNavigationBar: Container(
           height: Dimensions.buttonHeightBar,
