@@ -1,4 +1,3 @@
-import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
 import 'package:flutter/material.dart';
 
 class AppbarIconwidget extends StatelessWidget {
@@ -7,12 +6,14 @@ class AppbarIconwidget extends StatelessWidget {
       required this.icon,
       this.backgroundColor = const Color(0XFFfcf4e4),
       this.iconColor = const Color(0XFF756d54),
-      this.size = 40});
+      this.size = 40,
+      this.iconSize = 16});
 
   final IconData icon;
   final Color backgroundColor;
   final Color iconColor;
   final double size;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class AppbarIconwidget extends StatelessWidget {
         child: Icon(
           icon,
           color: iconColor,
-          size: Dimensions.iconSzie16,
+          size: iconSize,
         ));
   }
 }
