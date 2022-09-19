@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app/views/food/popular_food_details_view.dart';
+import 'app/views/food/recommended_food_details_view.dart';
 import 'app/views/uy/main_food_view.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home:
-            const PopularFoodDetailsView() // const PopularFoodDetailsView(), //const MianFoodView()
+            const RecommendedFoodDetailsView() // const PopularFoodDetailsView(), //const MianFoodView()
         );
   }
 }
