@@ -1,8 +1,12 @@
+import 'package:aziq_tulik_jetkizw/app/controller/popular_product_controller.dart';
+import 'package:aziq_tulik_jetkizw/common/quraldar/app_constants.dart';
 import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
 import 'package:aziq_tulik_jetkizw/common/quraldar/app_tusteri.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../models/products_model.dart';
 import '../../vidjetter/app_column_widget.dart';
 import '../../vidjetter/icons_and_text_widget.dart';
 import '../../vidjetter/smal_text_widget.dart';
@@ -42,26 +46,32 @@ class _FoodBodyViewState extends State<FoodBodyView> {
   Widget build(BuildContext context) {
     return Column(children: [
       // slaider section
-      SizedBox(
-          height: Dimensions.pageView,
-          child: PageView.builder(
-              controller: pageController,
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return _pageItemBuild(index);
-              })),
+      GetBuilder<PopularProductController>(builder: (popularProducts) {
+        return SizedBox(
+            height: Dimensions.pageView,
+            child: PageView.builder(
+                controller: pageController,
+                itemCount: popularProducts.popularProductList.length,
+                itemBuilder: (context, index) {
+                  return _pageItemBuild(index, popularProducts.popularProductList[index]);
+                }));
+      }),
       // dots
-      DotsIndicator(
-        dotsCount: 5,
-        position: currentPageValue,
-        decorator: DotsDecorator(
-          activeColor: AppTusteri.negizigTus,
-          size: const Size.square(9.0),
-          activeSize: const Size(18.0, 9.0),
-          activeShape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-        ),
-      ),
+      GetBuilder<PopularProductController>(builder: (popularProducts) {
+        return DotsIndicator(
+          dotsCount: popularProducts.popularProductList.isEmpty
+              ? 1
+              : popularProducts.popularProductList.length,
+          position: currentPageValue,
+          decorator: DotsDecorator(
+            activeColor: AppTusteri.negizigTus,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
+        );
+      }),
 
       // popular text
       SizedBox(
@@ -164,7 +174,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
     ]);
   }
 
-  Widget _pageItemBuild(int index) {
+  Widget _pageItemBuild(int index, Products popularPro) {
     Matrix4 matrix = Matrix4.identity();
 
     if (index == currentPageValue.floor()) {
@@ -201,9 +211,9 @@ class _FoodBodyViewState extends State<FoodBodyView> {
               color: index.isEven
                   ? const Color(0xff69c5df)
                   : const Color(0xff9294cc),
-              image: const DecorationImage(
+              image:  DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/food0.png'),
+                image: NetworkImage( "${AppConstants.baseUri}/uploads${popularPro.img!}"),
               ),
             )),
         Align(
@@ -228,7 +238,7 @@ class _FoodBodyViewState extends State<FoodBodyView> {
               child: Container(
                   padding: EdgeInsets.only(
                       top: Dimensions.height15, left: 15, right: 15),
-                  child: const AppColumnWidget(text:'Malay Side'))),
+                  child:  AppColumnWidget(text: popularPro.name!))),
         )
       ]),
     );

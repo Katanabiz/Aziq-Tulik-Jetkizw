@@ -1,3 +1,4 @@
+import 'package:aziq_tulik_jetkizw/common/quraldar/app_constants.dart';
 import 'package:get/get.dart';
 
 class ApiClient extends GetConnect implements GetxService {
@@ -10,6 +11,7 @@ class ApiClient extends GetConnect implements GetxService {
   }) {
     baseUrl = appBaseUrl;
     timeout = const Duration(seconds: 30);
+    token = AppConstants.token;
     _mainHeaders = {
       'Content-type': 'application/json; cherset=UTF-8',
       'Authorization': 'Bearer $token',
