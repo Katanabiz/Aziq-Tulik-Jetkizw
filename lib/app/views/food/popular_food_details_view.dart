@@ -1,19 +1,31 @@
-import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import 'package:aziq_tulik_jetkizw/app/routes/route_helper.dart';
+import 'package:aziq_tulik_jetkizw/common/quraldar/app_dimensions.dart';
+
+import '../../../common/quraldar/app_constants.dart';
 import '../../../common/quraldar/app_tusteri.dart';
+import '../../controller/popular_product_controller.dart';
 import '../../vidjetter/app_column_widget.dart';
 import '../../vidjetter/appbar_icons_widget.dart';
 import '../../vidjetter/big_text_widget.dart';
 import '../../vidjetter/expandable_text_widget.dart';
-import '../../vidjetter/icons_and_text_widget.dart';
-import '../../vidjetter/smal_text_widget.dart';
 
 class PopularFoodDetailsView extends StatelessWidget {
-  const PopularFoodDetailsView({super.key});
+  final int pageId;
+ const  PopularFoodDetailsView({
+    Key? key,
+    required this.pageId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product =
+        Get.find<PopularProductController>().popularProductList[pageId];
+        Get.find<PopularProductController>().initProduct();
+    print("What is page ID ${pageId.toString()}");
+    print("Product name is");
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
@@ -24,21 +36,26 @@ class PopularFoodDetailsView extends StatelessWidget {
             child: Container(
                 width: double.maxFinite,
                 height: Dimensions.popularFoodImageSize,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/food0.png'))))),
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      "${AppConstants.baseUri}${AppConstants.uploadedtUri}${product.img!}"),
+                )))),
         // both of icons
         Positioned(
           top: Dimensions.height45,
           left: Dimensions.width20,
           right: Dimensions.width20,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                AppbarIconwidget(icon: Icons.arrow_back_ios),
-                AppbarIconwidget(icon: Icons.shopping_cart_outlined),
-              ]),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            GestureDetector(
+                onTap: () {
+                  Get.toNamed(RoutesHelper.initial);
+                },
+                child: const AppbarIconwidget(icon: Icons.arrow_back_ios)),
+            const AppbarIconwidget(icon: Icons.shopping_cart_outlined),
+          ]),
         ),
         // introduction of foods
         Positioned(
@@ -60,9 +77,7 @@ class PopularFoodDetailsView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppColumnWidget(
-                    text: 'Malay Side',
-                  ),
+                  AppColumnWidget(text: product.name!),
                   SizedBox(
                     height: Dimensions.height20,
                   ),
@@ -72,18 +87,17 @@ class PopularFoodDetailsView extends StatelessWidget {
                   ),
 
                   // expandable text widget
-                  const Expanded(
+                  Expanded(
                     child: SingleChildScrollView(
-                      child: ExpandableTextWidget(
-                          text:
-                              "Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping upTrying to pass a default value for background color to the constructor but these are the error messages popping up Trying to pass a default value for background color to the constructor but these are the error messages popping up ."),
+                      child: ExpandableTextWidget(text: product.description!),
                     ),
                   )
                 ],
               )),
         ),
       ]),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: GetBuilder<PopularProductController>(builder: (controller) {
+        return Container(
           height: Dimensions.buttonHeightBar,
           padding: EdgeInsets.only(
               bottom: Dimensions.height30,
@@ -109,15 +123,23 @@ class PopularFoodDetailsView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(Dimensions.radius20)),
                   child: Row(
                     children: [
-                      const Icon(Icons.remove, color: AppTusteri.signTus),
+                        GestureDetector(
+                        onTap:() {
+                          controller.setQuantity(false);
+                        },
+                        child:const Icon(Icons.remove, color: AppTusteri.signTus)),
                       SizedBox(
                         width: Dimensions.height10 / 2,
                       ),
-                      const BigTextWidget(text: '0'),
+                       BigTextWidget(text: controller.quantity.toString()),
                       SizedBox(
                         width: Dimensions.height10 / 2,
                       ),
-                      const Icon(Icons.add, color: AppTusteri.signTus)
+                       GestureDetector(
+                        onTap:() {
+                          controller.setQuantity(true);
+                        },
+                        child:const Icon(Icons.add, color: AppTusteri.signTus))
                     ],
                   )),
               Container(
@@ -129,11 +151,13 @@ class PopularFoodDetailsView extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: AppTusteri.negizigTus,
                     borderRadius: BorderRadius.circular(Dimensions.radius20)),
-                child: const BigTextWidget(
-                    text: '\$10 | Add to cart', color: Colors.white),
+                child: BigTextWidget(
+                    text: '\$${product.price!} | Add to cart',
+                    color: Colors.white),
               )
             ],
-          )),
+          ));
+      },)
     );
   }
 }

@@ -3,7 +3,7 @@ class ProductModel {
   int? _typeId;
   int? _offset;
   late List<Products> _products;
-  List<Products> get products => _products;
+  List<Products> get productList => _products;
 
   ProductModel(
       {required totalSize,
@@ -13,7 +13,7 @@ class ProductModel {
     _totalSize = totalSize;
     _typeId = typeId;
     _offset = offset;
-    _products = products;
+    _products = productList;
   }
 
   ProductModel.fromJson(Map<String, dynamic> json) {
